@@ -25,7 +25,7 @@ Some of the tools I use happily:
 - Chrome browser
 - Atom Editor (yah!)
 - Terminal-Plus Atom package (so I can operate a few terminals within Atom in full screen mode)
-- I write a lot of Coffeescript: `meteor add coffeescript`
+- I write a lot of Coffeescript, Jade, SCSS w/ Compass: `meteor add coffeescript mquandalle:jade fourseven:scss francocatena:compass`
 
 Some References:
 - What is **underscore.js**?
