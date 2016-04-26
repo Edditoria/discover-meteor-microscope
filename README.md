@@ -22,7 +22,7 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
     db.posts.insert({title: "test post"});
     db.posts.find();
     ```
-
+- \[!\] MUST DO `meteor remove autopublish insecure`
 
 # Worth Mention
 
@@ -47,3 +47,4 @@ Some References:
 - SCSS: <http://sass-lang.com/guide>
   - [Sass vs. SCSS: which syntax is better?](http://thesassway.com/editorial/sass-vs-scss-which-syntax-is-better) *- thesassway.com*
 - Compass: <http://compass-style.org/help/>
+- [Developer's Guide to Improving Project Structure in Meteor Applications](https://www.toptal.com/meteor/improving-project-structure-meteor-framework) *- Darion Cassel*
