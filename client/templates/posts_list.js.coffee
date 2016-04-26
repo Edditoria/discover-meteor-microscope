@@ -1,8 +1,7 @@
 postsData = [
   {
     title: 'Awesome book to get start with Meteor.js'
-    url: 'https://www.discovermeteor.com/'
-    domain: '#todo: test: work on \'domain\' later'
+    url: 'https://www.discovermeteor.com'
   }
   {
     title: 'Meteor.js'
