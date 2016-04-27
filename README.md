@@ -24,11 +24,11 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
     ```
 - \[!\] MUST DO `meteor remove autopublish insecure`
 - good packages `meteor add iron:router nimble:restivus aldeed:collection2` \#todo check
-- do Test with [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium**
+- do Test with official Meteor test package or [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium** \#todo research
 - \#todo any package that is better than autopublish?
 - Iron router:
-  - use `waitOn: -> Meteor.subscribe 'posts'` in router.js rather than client\\main.js for better user experience.
-  -
+  - use `waitOn: -> Meteor.subscribe 'posts'` in router.js rather than client\\main.js
+  - use `waitOn: -> loadingTemplate 'loading'` and setup spinner with `meteor add sacha:spin` for better user experience.
 
 
 # Worth Mention
