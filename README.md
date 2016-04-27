@@ -13,6 +13,8 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
 - working with Jade and Spacebar:
   - `+postsList` is equivalent to `{{> postsList}}`.
   - `#{url}` is equivalent to `{{spacebar}}`.
+  - you still need to `href='{{pathFor "postsList"}}'`
+  - `{{#each}}` `{{#with}}` (or `+with` `+each` or just `with` `each`) \#todo dig deep
 - working with Coffeescript in Meteor:
   - use `@Post = new Mongo.Collection posts` as you don't need `var`.
 - MongoDB:
