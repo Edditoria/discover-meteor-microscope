@@ -31,6 +31,7 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
 - Iron router:
   - use `waitOn: -> Meteor.subscribe 'posts'` in router.js rather than client\\main.js
   - use `waitOn: -> loadingTemplate 'loading'` and setup spinner with `meteor add sacha:spin` for better user experience.
+  - use build-in hook `'loading'` and also `'dataNotFound'`
 
 
 # Worth Mention
