@@ -26,6 +26,10 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
 - good packages `meteor add iron:router nimble:restivus aldeed:collection2` \#todo check
 - do Test with [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium**
 - \#todo any package that is better than autopublish?
+- Iron router:
+  - use `waitOn: -> Meteor.subscribe 'posts'` in router.js rather than client\\main.js for better user experience.
+  -
+
 
 # Worth Mention
 
