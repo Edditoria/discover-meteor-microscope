@@ -23,12 +23,15 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
     db.posts.find();
     ```
 - \[!\] MUST DO `meteor remove autopublish insecure`
+- good packages `meteor add iron:router nimble:restivus aldeed:collection2` \#todo check
+- do Test with [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium**
+- \#todo any package that is better than autopublish?
 
 # Worth Mention
 
 Some of the tools I use happily:
 
-- Macbook Air 13"
+- Macbook Air 13", Cloud9 @ Windows
 - use `brew` to install `nvm` to manage `npm`
 - Chrome browser
 - Atom Editor (yah!)
@@ -48,3 +51,5 @@ Some References:
   - [Sass vs. SCSS: which syntax is better?](http://thesassway.com/editorial/sass-vs-scss-which-syntax-is-better) *- thesassway.com*
 - Compass: <http://compass-style.org/help/>
 - [Developer's Guide to Improving Project Structure in Meteor Applications](https://www.toptal.com/meteor/improving-project-structure-meteor-framework) *- Darion Cassel*
+- [Meteor Tutorial: Building Real-Time Web Applications with Meteor](https://www.toptal.com/meteor/building-real-time-web-applications-with-meteor) *- Peter Rogers*
+  > On a side note: you can also address security issues in Meteor by using “allow and deny rules”. You can find out more about those and some reasons I prefer the above approach instead at discovermeteor.com.
