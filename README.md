@@ -26,12 +26,13 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
     ```
 - \[!\] MUST DO `meteor remove autopublish insecure`
 - good packages `meteor add iron:router nimble:restivus aldeed:collection2` \#todo check
-- do Test with official Meteor test package or [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium** \#todo research
+- do Test with [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium** \#todo research Tinytest
 - \#todo any package that is better than autopublish?
 - Iron router:
   - use `waitOn: -> Meteor.subscribe 'posts'` in router.js rather than client\\main.js
   - use `waitOn: -> loadingTemplate 'loading'` and setup spinner with `meteor add sacha:spin` for better user experience.
   - use build-in hook `'loading'` and also `'dataNotFound'`
+- Meteor serve the static contents quite slow. May need a CDN? \#todo
 
 
 # Worth Mention
@@ -43,7 +44,7 @@ Some of the tools I use happily:
 - Chrome browser
 - Atom Editor (yah!)
 - Terminal-Plus Atom package (so I can operate a few terminals within Atom in full screen mode)
-- enjoy a lot of Coffeescript, Jade, SCSS w/ Compass: `meteor add coffeescript mquandalle:jade fourseven:scss francocatena:compass`
+- enjoy a lot of Coffeescript, Pug(formerly Jade), SCSS w/ Compass: `meteor add coffeescript mquandalle:jade fourseven:scss francocatena:compass`
   > note: I prefer SCSS because it is readable for more front-end developers
 
 - text
