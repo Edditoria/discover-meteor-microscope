@@ -1,0 +1,11 @@
+template(name='postSubmit')
+  form.main.form
+    .form-group
+      label(for='url').control-label URL
+      .controls
+        input(name='url' type='text' value='' placeholder='Your URL')#url.form-control
+    .form-group
+      label(for='title').control-label Title
+      .controls
+        input(name='title' type='text' value='' placeholder='Name your post')#title.form-control
+    input(type='submit' value='Submit').btn.btn-primary
