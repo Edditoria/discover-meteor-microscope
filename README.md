@@ -34,6 +34,7 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
   - use build-in hook `'loading'` and also `'dataNotFound'`
 - Meteor serve the static contents quite slow. May need a CDN? \#todo
 - building **form**: use `preventDefault` of jQuery event to prevent submitting data again.
+- `meteor add matb33:collection-hooks` extends Mongo.Collection with before/after hooks for insert, update, remove, find, and findOne.
 
 
 # Worth Mention
@@ -48,8 +49,7 @@ Some of the tools I use happily:
 - enjoy a lot of Coffeescript, Pug(formerly Jade), SCSS w/ Compass: `meteor add coffeescript mquandalle:jade fourseven:scss francocatena:compass`
   > note: I prefer SCSS because it is readable for more front-end developers
 
-- text
-- text
+- (to be cont'd)
 
 Some References:
 - What is underscore.js? [Getting Started with Underscore.js](http://www.sitepoint.com/getting-started-with-underscore-js/) *- Sitepoint.com*
@@ -62,3 +62,5 @@ Some References:
 - [Developer's Guide to Improving Project Structure in Meteor Applications](https://www.toptal.com/meteor/improving-project-structure-meteor-framework) *- Darion Cassel*
 - [Meteor Tutorial: Building Real-Time Web Applications with Meteor](https://www.toptal.com/meteor/building-real-time-web-applications-with-meteor) *- Peter Rogers*
   > On a side note: you can also address security issues in Meteor by using “allow and deny rules”. You can find out more about those and some reasons I prefer the above approach instead at discovermeteor.com.
+
+- (to be cont'd)
