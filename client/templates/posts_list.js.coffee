@@ -1,6 +1,6 @@
 Template.postsList.helpers
   posts: ->
-    Posts.find()
+    Posts.find {}, {sort: {submitted: -1}} # sort (newer first)
 
 ### removed since Posts is inserted in MongoDB
 postsData = [
