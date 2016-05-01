@@ -25,14 +25,15 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
     db.posts.find();
     ```
 - \[!\] MUST DO `meteor remove autopublish insecure`
+  - \#todo any package that is better than autopublish?
 - good packages `meteor add iron:router nimble:restivus aldeed:collection2` \#todo check
 - do Test with [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium** \#todo research Tinytest
-- \#todo any package that is better than autopublish?
 - Iron router:
   - use `waitOn: -> Meteor.subscribe 'posts'` in router.js rather than client\\main.js
   - use `waitOn: -> loadingTemplate 'loading'` and setup spinner with `meteor add sacha:spin` for better user experience.
   - use build-in hook `'loading'` and also `'dataNotFound'`
 - Meteor serve the static contents quite slow. May need a CDN? \#todo
+- building **form**: use `preventDefault` of jQuery event to prevent submitting data again.
 
 
 # Worth Mention
