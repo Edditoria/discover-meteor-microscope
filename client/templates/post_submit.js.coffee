@@ -14,5 +14,9 @@ Template.postSubmit.events
       # show error and exit
       if error
         return alert error.reason
+      # alert message if submitting post already exists
+      if result.postExists
+        alert 'This link has already been posted'
+      
       Router.go 'postPage', _id: result._id
       return
