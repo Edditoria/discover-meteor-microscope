@@ -16,7 +16,8 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
   - you still need to `href='{{pathFor "postsList"}}'`
   - `{{#each}}` `{{#with}}` (or `+with` `+each` or just `with` `each`) \#todo dig deep
 - working with Coffeescript in Meteor:
-  - use `@Post = new Mongo.Collection posts` as you don't need `var`.
+  - do alert to add `@` especially in some lib script
+  - e.g. `@Post = new Mongo.Collection posts` as you don't need `var`.
 - MongoDB:
   - shell: `meteor mongo` to enter Mongo shell, `meteor reset` to erase all data.
 
@@ -33,7 +34,7 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
   - use `waitOn: -> loadingTemplate 'loading'` and setup spinner with `meteor add sacha:spin` for better user experience.
   - use build-in hook `'loading'` and also `'dataNotFound'`
 - Meteor serve the static contents quite slow. May need a CDN? \#todo
-- building **form**: use `preventDefault` of jQuery event to prevent submitting data again.
+- building **form**: use `e.preventDefault()` of jQuery event to prevent submitting data again.
 - `meteor add matb33:collection-hooks` extends Mongo.Collection with before/after hooks for insert, update, remove, find, and findOne.
 
 

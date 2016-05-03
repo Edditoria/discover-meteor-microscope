@@ -1,0 +1,18 @@
+template(name='postEdit')
+  form.main.form
+    
+    .form-group
+      label(for='url').control-label URL
+      .controls
+        input(name='url' type='text' value='#{url}' placeholder="Your URL")#url.form-control
+    
+    .form-group
+      label(for='title').control-label Title
+      .controls
+        input(name='title' type='text' value='#{title}' placeholder='Name your post')#title.form-control
+    
+    input(type='submit' value ='Submit').btn.btn-primary.submit
+    
+    hr
+    a(href='#').btn.btn-danger.delete Delete post
+    
