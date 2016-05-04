@@ -9,7 +9,7 @@ Template.postEdit.events
       title: $(e.target).find('[name=title]').val()
     }
     Posts.update currentPostId, { $set: postProperties }, (error) ->
-      if (error) then alert(error.reason)
+      if (error) then throwError error.reason
       else Router.go 'postPage', { _id: currentPostId }
       return
     return

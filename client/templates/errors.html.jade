@@ -1,0 +1,9 @@
+template(name='errors')
+  .errors
+    each errors
+      +error
+
+template(name='error')
+  div(role='alert').alert.alert-danger
+    button(type='button' data-dismiss='alert').close (&#62;_&#60;)"
+    | #{message}
