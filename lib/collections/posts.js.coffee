@@ -4,6 +4,13 @@ Posts.allow
   update: (userId, post) -> ownsDocument userId, post
   remove: (userId, post) -> ownsDocument userId, post
 
+Posts.deny
+  update: (userId, post, fieldNames) ->
+    # note that length is 0 in normal case
+    # so, if someone do things other than normal process, length will become 0
+    _.without(fieldNames, 'url', 'title').length > 0
+
+
 # removed:
 # Posts.allow
 #   insert: (userId, doc) -> return !!userId

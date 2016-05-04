@@ -36,6 +36,7 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
 - Meteor serve the static contents quite slow. May need a CDN? \#todo
 - building **form**: use `e.preventDefault()` of jQuery event to prevent submitting data again.
 - `meteor add matb33:collection-hooks` extends Mongo.Collection with before/after hooks for insert, update, remove, find, and findOne.
+- \#todo : deny if submit a post that is already exist, it should be denied.
 
 
 # Worth Mention
