@@ -1,14 +1,17 @@
 Template.postSubmit.onCreated ->
   Session.set 'postSubmitErrors', {}
   return
+# similar code: post_edit.js.coffee
 
 Template.postSubmit.helpers
   errorMessage: (field) ->
     Session.get('postSubmitErrors')[field]
   errorClass: (field) ->
     if !!Session.get('postSubmitErrors')[field] then 'has-error' else ''
-# to test, do in browser console:
-# Session.set('postSubmitErrors', {title: 'Warning! Intruder detected. Now releasing robo-dogs.'});
+# - to test, do in browser console:
+#   Session.set('postSubmitErrors', {title: 'Warning'});
+# - similar code: post_edit.js.coffee
+
 
 Template.postSubmit.events
   'submit form': (e) ->
@@ -22,6 +25,7 @@ Template.postSubmit.events
     errors = validatePost post
     if errors.title or errors.url
       return Session.set 'postSubmitErrors', errors
+    # similar code: post_edit.js.coffee
 
     # remove:
     # post._id = Posts.insert post

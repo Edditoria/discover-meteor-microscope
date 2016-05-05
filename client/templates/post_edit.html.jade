@@ -1,15 +1,17 @@
 template(name='postEdit')
   form.main.form
     
-    .form-group
+    div(class='{{errorClass "url"}}').form-group
       label(for='url').control-label URL
       .controls
         input(name='url' type='text' value='#{url}' placeholder="Your URL")#url.form-control
+        span.help-block {{errorMessage 'url'}}
     
-    .form-group
+    div(class='{{errorClass "title"}}').form-group
       label(for='title').control-label Title
       .controls
         input(name='title' type='text' value='#{title}' placeholder='Name your post')#title.form-control
+        span.help-block {{errorMessage 'title'}}
     
     input(type='submit' value ='Submit').btn.btn-primary.submit
     

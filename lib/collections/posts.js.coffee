@@ -10,6 +10,11 @@ Posts.deny
     # so, if someone do things other than normal process, length will become 0
     _.without(fieldNames, 'url', 'title').length > 0
 
+Posts.deny
+  update: (userId, post, fieldNames, modifier) ->
+    errors = validatePost modifier.$set
+    errors.title or errors.url
+
 
 # removed:
 # Posts.allow
