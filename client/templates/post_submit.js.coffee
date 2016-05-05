@@ -1,3 +1,15 @@
+Template.postSubmit.onCreated ->
+  Session.set 'postSubmitErrors', {}
+  return
+
+Template.postSubmit.helpers
+  errorMessage: (field) ->
+    Session.get('postSubmitErrors')[field]
+  errorClass: (field) ->
+    if !!Session.get('postSubmitErrors')[field] then 'has-error' else ''
+# to test, do in browser console:
+# Session.set('postSubmitErrors', {title: 'Warning! Intruder detected. Now releasing robo-dogs.'});
+
 Template.postSubmit.events
   'submit form': (e) ->
     e.preventDefault()
@@ -5,6 +17,11 @@ Template.postSubmit.events
       url: $(e.target).find('[name=url]').val()
       title: $(e.target).find('[name=title]').val()
     }
+
+    # will stop 'submit form' and display reason
+    errors = validatePost post
+    if errors.title or errors.url
+      return Session.set 'postSubmitErrors', errors
 
     # remove:
     # post._id = Posts.insert post

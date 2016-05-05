@@ -23,6 +23,15 @@ Meteor.methods
       url: String
     }
 
+    # this will be activated when user do wried things
+    # such as add a post via browser console
+    # to test, do in browser conosole:
+    # Meteor.call('postInsert', {url: '', title: 'No URL here!'});
+    errors = validatePost postAttributes
+    if errors.title or errors.url
+      msg = 'You must set a title and URL for your post'
+      throw new Meteor.Error('invalid-post', msg)
+
     # check if the submitting post is already exist
     postWithSameLink = Posts.findOne { url: postAttributes.url }
     if postWithSameLink
@@ -40,3 +49,12 @@ Meteor.methods
     postId = Posts.insert post
     _id: postId
     # note: _.extend comes from Underscore package
+
+
+@validatePost = (post) ->
+  errors = {}
+  if !post.title
+    errors.title = 'Please fill in a headline'
+  if !post.url
+    errors.url = 'Please fill in a URL'
+  errors
