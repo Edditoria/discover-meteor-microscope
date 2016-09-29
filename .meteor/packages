@@ -32,3 +32,4 @@ twbs:bootstrap
 iron:router
 sacha:spin
 ian:accounts-ui-bootstrap-3
+edditoria:errors-by-discover-meteor

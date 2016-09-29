@@ -31,7 +31,8 @@ Template.postEdit.events
     # similar code: post_submit.js.coffee
 
     Posts.update currentPostId, { $set: postProperties }, (error) ->
-      if (error) then throwError error.reason
+      # if error then throwError error.reason
+      if error then Errors.throw error.reason
       else Router.go 'postPage', { _id: currentPostId }
       return
     return
