@@ -20,6 +20,7 @@ if Posts.find().count() is 0
     author: sacha.profile.name
     url: 'https://www.discovermeteor.com'
     submitted: new Date(now - 7 * 3600 * 1000)
+    commentsCount: 2
   Comments.insert
     postId: initPostId
     userId: tom._id
@@ -39,9 +40,11 @@ if Posts.find().count() is 0
     author: tom.profile.name
     url: 'https://www.meteor.com/'
     submitted: new Date(now - 10 * 3600 * 1000)
+    commentsCount: 0
   Posts.insert
     title: 'this repo: Discover Meteor: Microscope'
     userId: tom._id
     author: tom.profile.name
     url: 'https://github.com/Edditoria/discover-meteor-microscope'
     submitted: new Date(now - 12 * 3600 * 1000)
+    commentsCount: 0
