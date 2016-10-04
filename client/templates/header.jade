@@ -9,8 +9,10 @@ template(name='header')
       a.navbar-brand(href='{{pathFor "postsList"}}') Microscope
     #navigation.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li
-          if currentUser
+        if currentUser
+          li
             a(href='{{pathFor "postSubmit"}}') Submit Post
+          li.dropdown
+            +notifications
       ul.nav.navbar-nav.navbar-right
         +loginButtons

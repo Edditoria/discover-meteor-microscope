@@ -4,6 +4,7 @@ Router.configure
   notFoundTemplate: 'notFound'
   waitOn: -> [
     Meteor.subscribe 'posts'
+    Meteor.subscribe 'notifications'
   ]
 
 Router.route '/', name: 'postsList'
