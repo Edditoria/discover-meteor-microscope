@@ -48,3 +48,12 @@ if Posts.find().count() is 0
     url: 'https://github.com/Edditoria/discover-meteor-microscope'
     submitted: new Date(now - 12 * 3600 * 1000)
     commentsCount: 0
+
+  for i in [1..20]
+    Posts.insert
+      title: "Auto post ##{i}"
+      author: sacha.profile.name
+      userId: sacha._id
+      url: "http://google.com/?q=test-#{i}"
+      submitted: new Date(now - i * 3600 * 1000)
+      commentsCount: 0

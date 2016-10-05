@@ -1,4 +1,13 @@
-Meteor.publish 'posts', -> Posts.find()
+Meteor.publish 'posts', (options) ->
+  # check for security purpose
+  check options,
+    sort: Object
+    limit: Number
+  Posts.find {}, options
+
+Meteor.publish 'singlePost', (id) ->
+  check id, String
+  Posts.find id
 
 Meteor.publish 'comments', (postId) ->
   check postId, String
