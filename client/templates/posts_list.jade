@@ -4,3 +4,6 @@ template(name='postsList')
       +postItem
     if nextPath
       a(href='#{nextPath}').load-more Load more
+    else
+      unless ready
+        +spinner

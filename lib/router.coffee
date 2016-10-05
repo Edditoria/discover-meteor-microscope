@@ -12,7 +12,10 @@ Router.configure
     sort: {submitted: -1}
     limit: @postsLimit()
   }
-  waitOn: -> Meteor.subscribe 'posts', @findOptions()
+  subscriptions: ->
+    @postsSub = Meteor.subscribe 'posts', @findOptions()
+    return
+  # waitOn: -> Meteor.subscribe 'posts', @findOptions()
   posts: -> Posts.find {}, @findOptions()
   data: ->
     hasMore = @posts().count() is @postsLimit()
@@ -20,6 +23,7 @@ Router.configure
       postsLimit: @postsLimit() + @increment
     {
       posts: @posts()
+      ready: @postsSub.ready
       nextPath: if hasMore then nextPath else null
     }
 
