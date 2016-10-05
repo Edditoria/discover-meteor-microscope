@@ -4,6 +4,26 @@ Router.configure
   notFoundTemplate: 'notFound'
   waitOn: -> Meteor.subscribe 'notifications'
 
+@PostsListController = RouteController.extend
+  template: 'postsList'
+  increment: 5
+  postsLimit: -> parseInt(@params.postsLimit) or @increment
+  findOptions: -> {
+    sort: {submitted: -1}
+    limit: @postsLimit()
+  }
+  waitOn: -> Meteor.subscribe 'posts', @findOptions()
+  posts: -> Posts.find {}, @findOptions()
+  data: ->
+    hasMore = @posts().count() is @postsLimit()
+    nextPath = @route.path
+      postsLimit: @postsLimit() + @increment
+    {
+      posts: @posts()
+      nextPath: if hasMore then nextPath else null
+    }
+
+
 # removed and use /:postsLimit? instead
 # Router.route '/', name: 'postsList'
 
@@ -25,6 +45,7 @@ Router.route '/submit', name: 'postSubmit'
 
 Router.route '/:postsLimit?',
   name: 'postsList'
+  ### delegate to PostsListController
   waitOn: ->
     limit = parseInt(@params.postsLimit) or 5
     Meteor.subscribe 'posts',
@@ -35,6 +56,7 @@ Router.route '/:postsLimit?',
     posts: Posts.find {},
       sort: {submitted: -1}
       limit: limit
+  ###
 
 
 requireLogin = ->
