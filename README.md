@@ -13,8 +13,10 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
 - working with Jade and Spacebar:
   - `+postsList` is equivalent to `{{> postsList}}`.
   - `#{url}` is equivalent to `{{spacebar}}`.
-  - you still need to `href='{{pathFor "postsList"}}'`
-  - `{{#each}}` `{{#with}}` (or `+with` `+each` or just `with` `each`) \#todo dig deep
+  - `if` `unless` `each` `with` (or `+something`) for `{{#each}}` `{{#with}}` etc.
+  - you still need to `a(href='{{pathFor "postsList"}}')` or `div(class='{{errorClass "url"}}').form-group` etc.
+  - and need to `(class='#{upvotedClass}')` or `(class='{{upvotedClass}}')`.
+    - cannot `span.#{doThis}` or `span.{{doThis}}`.
 - working with Coffeescript in Meteor:
   - do alert to add `@` especially in some lib script
   - e.g. `@Post = new Mongo.Collection posts` as you don't need `var`.
@@ -25,8 +27,9 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
     db.posts.insert({title: "test post"});
     db.posts.find();
     ```
+
+  - used operators in tutorial: `$set`, `$addToSet` and `$inc`.
 - \[!\] MUST DO `meteor remove autopublish insecure`
-  - \#todo any package that is better than autopublish?
 - good packages `meteor add iron:router nimble:restivus aldeed:collection2` \#todo check
 - do Test with [Velocity](https://github.com/meteor-velocity/velocity) using **Mocha, Jasmine, Cucumber, and Selenium** \#todo research Tinytest
 - Iron router:

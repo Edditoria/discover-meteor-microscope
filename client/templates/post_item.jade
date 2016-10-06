@@ -1,6 +1,6 @@
 template(name='postItem')
   .post
-    a(href='#').upvote.btn.btn-default ⬆
+    a(href='#').upvote.btn.btn-default(class='#{upvotedClass}') ⬆
     .post-content
       h3
         a(href='#{url}')
