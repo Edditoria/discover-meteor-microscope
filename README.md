@@ -14,7 +14,7 @@ This repo is an exercise done following the tutorials in the book Discover Meteo
   - `+postsList` is equivalent to `{{> postsList}}`.
   - `#{url}` is equivalent to `{{spacebar}}`.
   - `if` `unless` `each` `with` (or `+something`) for `{{#each}}` `{{#with}}` etc.
-  - you still need to `a(href='{{pathFor "postsList"}}')` or `div(class='{{errorClass "url"}}').form-group` etc.
+  - to pass an argument(s), you still need to `a(href='{{pathFor "postsList"}}')` or `div(class='{{errorClass "url"}}').form-group` or `p {{pluralize votes "vote"}}` etc.
   - and need to `(class='#{upvotedClass}')` or `(class='{{upvotedClass}}')`.
     - cannot `span.#{doThis}` or `span.{{doThis}}`.
 - working with Coffeescript in Meteor:

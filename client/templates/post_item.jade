@@ -1,13 +1,14 @@
 template(name='postItem')
   .post
-    a(href='#').upvote.btn.btn-default(class='#{upvotedClass}') ⬆
+    a(href='#' class='#{upvotedClass}').upvote.btn.btn-default ⬆
     .post-content
       h3
         a(href='#{url}')
           | #{title}
           span #{domain}
-      p #{votes} votes, submitted by #{author},
-        a(href='{{pathFor "postPage"}}') #{commentsCount} comments
+      p {{pluralize votes "vote"}},
+        | submitted by #{author},
+        a(href='{{pathFor "postPage"}}') {{pluralize commentsCount "comment"}}
         if ownPost
           a(href='{{pathFor "postEdit"}}') Edit
     a(href='{{pathFor "postPage"}}').discuss.btn.btn-default
