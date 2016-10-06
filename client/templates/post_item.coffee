@@ -11,3 +11,8 @@ Template.postItem.helpers
       postId: @_id
     ).count()
   ###
+
+Template.postItem.events
+  'click .upvote': (e) ->
+    e.preventDefault()
+    Meteor.call 'upvote', @_id

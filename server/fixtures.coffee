@@ -21,6 +21,8 @@ if Posts.find().count() is 0
     url: 'https://www.discovermeteor.com'
     submitted: new Date(now - 7 * 3600 * 1000)
     commentsCount: 2
+    upvoters: []
+    votes: 0
   Comments.insert
     postId: initPostId
     userId: tom._id
@@ -41,6 +43,8 @@ if Posts.find().count() is 0
     url: 'https://www.meteor.com/'
     submitted: new Date(now - 10 * 3600 * 1000)
     commentsCount: 0
+    upvoters: []
+    votes: 0
   Posts.insert
     title: 'this repo: Discover Meteor: Microscope'
     userId: tom._id
@@ -48,6 +52,8 @@ if Posts.find().count() is 0
     url: 'https://github.com/Edditoria/discover-meteor-microscope'
     submitted: new Date(now - 12 * 3600 * 1000)
     commentsCount: 0
+    upvoters: []
+    votes: 0
 
   for i in [1..20]
     Posts.insert
@@ -57,3 +63,5 @@ if Posts.find().count() is 0
       url: "http://google.com/?q=test-#{i}"
       submitted: new Date(now - i * 3600 * 1000)
       commentsCount: 0
+      upvoters: []
+      votes: 0

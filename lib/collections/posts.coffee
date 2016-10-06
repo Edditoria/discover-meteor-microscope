@@ -51,10 +51,25 @@ Meteor.methods
       author: user.username
       submitted: new Date()
       commentsCount: 0
+      upvoters: []
+      votes: 0
     }
     postId = Posts.insert post
     _id: postId
     # note: _.extend comes from Underscore package
+
+  upvote: (postId) ->
+    check @userId, String
+    check postId, String
+    post = Posts.findOne postId
+    if !post
+      throw new Meteor.Error 'invalid', 'Post not found'
+    if _.include post.upvoters, @userId
+      throw new Meteor.Error 'invalid', 'Already upvoted this post'
+    Posts.update post._id,
+      $addToSet: {upvoters: @userId}
+      $inc: {votes: 1}
+    return
 
 
 @validatePost = (post) ->
