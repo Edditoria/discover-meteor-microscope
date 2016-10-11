@@ -9,7 +9,7 @@ Router.configure
   increment: 5
   postsLimit: -> parseInt(@params.postsLimit) or @increment
   findOptions: -> {
-    sort: {submitted: -1}
+    sort: @sort
     limit: @postsLimit()
   }
   subscriptions: ->
@@ -19,13 +19,38 @@ Router.configure
   posts: -> Posts.find {}, @findOptions()
   data: ->
     hasMore = @posts().count() is @postsLimit()
-    nextPath = @route.path
-      postsLimit: @postsLimit() + @increment
+    # removed: nextPath refer to NewPostsControler and BestPostsController
+    # nextPath = @route.path
+    #   postsLimit: @postsLimit() + @increment
+    # instead: do this
     {
       posts: @posts()
       ready: @postsSub.ready
-      nextPath: if hasMore then nextPath else null
+      nextPath: if hasMore then @nextPath() else null
     }
+
+@NewPostsController = PostsListController.extend
+  sort: {submitted: -1, _id: -1}
+  nextPath: ->
+    Router.routes.newPosts.path
+      postsLimit: @postsLimit() + @increment
+@BestPostsController = PostsListController.extend
+  sort: {votes: -1, submitted: -1, _id: -1}
+  nextPath: ->
+    Router.routes.bestPosts.path
+      postsLimit: @postsLimit() + @increment
+
+Router.route '/',
+  name: 'home'
+  controller: NewPostsController
+
+Router.route '/new/:postsLimit?',
+  name: 'newPosts'
+  controller: NewPostsController
+
+Router.route '/best/:postsLimit?',
+  name: 'bestPosts'
+  controller: BestPostsController
 
 
 # removed and use /:postsLimit? instead
@@ -47,20 +72,20 @@ Router.route '/posts/:_id/edit', {
 }
 Router.route '/submit', name: 'postSubmit'
 
-Router.route '/:postsLimit?',
-  name: 'postsList'
-  ### delegate to PostsListController
-  waitOn: ->
-    limit = parseInt(@params.postsLimit) or 5
-    Meteor.subscribe 'posts',
-      sort: {submitted: -1}
-      limit: limit
-  data: ->
-    limit = parseInt(@params.postsLimit) or 5
-    posts: Posts.find {},
-      sort: {submitted: -1}
-      limit: limit
-  ###
+# # removed: replaced by NewPostsController
+# Router.route '/:postsLimit?',
+#   name: 'postsList'
+  # # removed: delegate to PostsListController
+  # waitOn: ->
+  #   limit = parseInt(@params.postsLimit) or 5
+  #   Meteor.subscribe 'posts',
+  #     sort: {submitted: -1}
+  #     limit: limit
+  # data: ->
+  #   limit = parseInt(@params.postsLimit) or 5
+  #   posts: Posts.find {},
+  #     sort: {submitted: -1}
+  #     limit: limit
 
 
 requireLogin = ->
