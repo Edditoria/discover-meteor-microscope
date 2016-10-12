@@ -1,7 +1,8 @@
 template(name='postsList')
-  .posts
-    each posts
-      +postItem
+  .posts.page
+    .wrapper
+      each posts
+        +postItem
     if nextPath
       a(href='#{nextPath}').load-more Load more
     else
