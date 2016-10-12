@@ -2,6 +2,11 @@ Template.postsList.onRendered ->
 
   # it will replace the default behaviour of Blaze
   @find('.wrapper')._uihooks =
+    insertElement: (node, next) ->
+      $(node).hide().insertBefore(next).fadeIn()
+    removeElement: (node) ->
+      $(node).fadeOut ->
+        $(@).remove()
     moveElement: (node, next) ->
       $node = $(node)
       $next = $(next)
