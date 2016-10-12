@@ -4,37 +4,40 @@ Template.postsList.onRendered ->
   @find('.wrapper')._uihooks =
     insertElement: (node, next) ->
       $(node).hide().insertBefore(next).fadeIn()
+      return
     removeElement: (node) ->
       $(node).fadeOut ->
         $(@).remove()
+        return
+      return
     moveElement: (node, next) ->
       $node = $(node)
       $next = $(next)
       oldTop = $node.offset().top
-      height = $node.outerHeight true
+      height = $(node).outerHeight(true)
 
       # find all elements between `next` and `node`
-      $inBetween = $next.nextUntil node
+      $inBetween = $(next).nextUntil(node)
       if $inBetween.length is 0
-        $inBetween = $node.nextUntil next
+        $inBetween = $(node).nextUntil(next)
 
       # place the `node`
-      $node.insertBefore next
+      $(node).insertBefore(next)
       # measure new `top`
-      newTop = $node.offset().top
+      newTop = $(node).offset().top
       # `node` move to original place
-      $node
+      $(node)
         .removeClass 'animate'
         .css 'top', oldTop - newTop
       # push every other element down (or up) to put them back
       $inBetween
         .removeClass 'animate'
         .css 'top',
-          if oldTop < newTop then height else -1* height
+          if oldTop < newTop then height else -1 * height
       # redraw
-      $node.offset()
+      $(node).offset()
       # animate: reset all elements top to 0
-      $node.addClass 'animate'
+      $(node).addClass 'animate'
         .css 'top', 0
       $inBetween.addClass 'animate'
         .css 'top', 0

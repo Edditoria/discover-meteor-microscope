@@ -18,15 +18,18 @@ Router.configure
   # waitOn: -> Meteor.subscribe 'posts', @findOptions()
   posts: -> Posts.find {}, @findOptions()
   data: ->
-    hasMore = @posts().count() is @postsLimit()
+    self = this
+    # hasMore = @posts().count() is @postsLimit()
     # removed: nextPath refer to NewPostsControler and BestPostsController
     # nextPath = @route.path
     #   postsLimit: @postsLimit() + @increment
     # instead: do this
     {
-      posts: @posts()
-      ready: @postsSub.ready
-      nextPath: if hasMore then @nextPath() else null
+      posts: self.posts()
+      ready: self.postsSub.ready
+      nextPath: ->
+        if self.posts().count() is self.postsLimit()
+          self.nextPath()
     }
 
 @NewPostsController = PostsListController.extend
@@ -46,11 +49,9 @@ Router.route '/',
 
 Router.route '/new/:postsLimit?',
   name: 'newPosts'
-  controller: NewPostsController
 
 Router.route '/best/:postsLimit?',
   name: 'bestPosts'
-  controller: BestPostsController
 
 
 # removed and use /:postsLimit? instead
